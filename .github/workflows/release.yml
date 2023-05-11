@@ -11,7 +11,7 @@ jobs:
       - name: Parse version info from tag
         run: |
           # GITHUB_REF is like refs/tags/v2.3.5, so strip the first 11 chars
-	  VERSION=${GITHUB_REF#refs/tags/}
+          VERSION=${GITHUB_REF#refs/tags/}
           MAJOR=`echo "$VERSION" | cut -d . -f 1`
           MINOR=`echo "$VERSION" | cut -d . -f 2`
           PATCH=`echo "$VERSION" | cut -d . -f 3`
