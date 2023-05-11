@@ -26,7 +26,7 @@ jobs:
       - name: Set release version variable
         run: echo "RELEASE_VERSION=$(git describe --tags)" >> $GITHUB_ENV
       - name: Update version in .env file
-        run: sed -i "s/^CURRENT_VERSION=.*/CURRENT_VERSION=0.2.0/g" .env
+        run: sed -i "s/^CURRENT_VERSION=.*/CURRENT_VERSION=$VERSION/g" .env
       - name: Print contents of .env file 2
         run: cat .env
       - name: Update version in pom.xml
