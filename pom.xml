@@ -32,26 +32,57 @@
                         </manifest>
                     </archive>
                 </configuration>
+        <executions>
+            <execution>
+                <id>make-assembly</id>
+                <phase>package</phase>
+                <goals>
+                    <goal>single</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
+                        <id>attach-sources</id>
                         <goals>
-                            <goal>single</goal>
+                            <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
+</plugins>
     </build>
-
-    <distributionManagement>
-        <repository>
+    <profiles>
+        <profile>
             <id>github</id>
-            <name>GitHub remla23-team3 Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/remla23-team3/lib</url>
-        </repository>
-    </distributionManagement>
+            <activation>
+                <property>
+                    <name>useGitHubPackages</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>remla23-team3-proba</name>
+                    <url>https://maven.pkg.github.com/remla23-team3/lib</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>github</id>-->
+<!--            <name>GitHub remla23-team3 Apache Maven Packages</name>-->
+<!--            <url>https://maven.pkg.github.com/remla23-team3/lib</url>-->
+<!--        </repository>-->
+<!--    </distributionManagement>-->
 
     <dependencies>
         <dependency>
