@@ -1,5 +1,6 @@
 name: Build
-
+# the branch name could be changed,
+# but we leave it for now like that since we don't want to make new deployments
 on:
   push:
     branches: 'workflow-version-and-deploy-mvn'
